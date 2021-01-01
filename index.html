@@ -38,9 +38,9 @@
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
-              <a href="#"  class="portafolio bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Portafolio</a>
-              <a href="#"  class="skills text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-              <a href="#"  class="experience text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+              <a href="#portafolio"  class="portafolio bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Portafolio</a>
+              <a href="#skills"  class="skills text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+              <a href="#experience"  class="experience text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Experience</a>
             </div>
           </div>
         </div>
@@ -49,15 +49,14 @@
   
  
       <!-- MENU MOVIL  -->
-      <div>
+      
     <div class="sm:hidden" x-show="open" x-on:click.away="open = false">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#" class="portafolio bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Portafolio</a>
+        <a href="#" class="portafolio text-white block px-3 py-2 rounded-md text-base font-medium">Portafolio</a>
         <a href="#" class="skills text-gray-300 hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
         <a href="#" class="experience text-gray-300 hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Experince</a>
       </div>
     </div>
-</div>
   </nav>
   
     <!-- <header class="bg-red-500 text-white text-normal text-lg flex flex-wrap content-center sticky top-0 h-12">
@@ -67,13 +66,37 @@
         <p class="mr-3 hover:bg-red-700 cursor-pointer">Experience</p>
     </header> -->
 
-    <section>
-        <article id="portafolio">
+   
+    <div x-data="showData()">
+        <article id="portafolio" class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+            <img @click="dataShow = true" class="w-full h-80 bg-cover bg-center cursor-pointer" src="./img/img1.png" alt="">
+            <img class="w-full h-80 bg-cover bg-center cursor-pointer"src="./img/img2.jpg" alt="">
+            <img class="w-full h-80 bg-cover bg-center cursor-pointer"src="./img/img3.jpeg" alt="">
 
+
+            <div x-show="dataShow" class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);">
+                <div class="bg-white rounded-lg md:max-w-md md:mx-auto p-4 fixed inset-x-0 bottom-0 z-50 mb-4 mx-4 md:relative">
+                    <div class="md:flex items-center">
+                        <div class="mt-4 md:mt-0 md:ml-6 text-center md:text-left">
+                            <p class="font-bold capitalize">¿deseas eliminar tu cuenta?</p>
+                            <p class="text-sm text-gray-700 mt-1">Todos tus datos seran eliminados definitivamente.Esta accion es irreversible. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-right mt-4 md:flex md:justify-end">
+                        <button
+                            class="block w-full md:inline-block md:w-auto px-4 py-3 md:py-2 bg-red-200 text-red-700 rounded-lg font-semibold text-sm md:ml-2 md:order-2">Eliminar Cuenta
+                        </button>
+                        <button class="block w-full md:inline-block md:w-auto px-4 py-3 md:py-2 bg-gray-200 rounded-lg font-semibold text-sm mt-4
+                               md:mt-0 md:order-1"  @click="dataShow = false">Cancelar</button>
+                    </div>
+                </div>
+            </div>
         </article>
-
+    </div>
+    <section>
         <article id="skills">
-
+           
         </article>
     </section>
 
@@ -83,26 +106,37 @@
 </body>
 
 <script>
+
+    
+    
+    
  let menu = document.querySelector('.portafolio'),
     skills = document.querySelector('.skills');
-    experience = document.querySelector('.experience');
+    experience = document.querySelector('.experience'),
+    uri = window.location.href;
 
+    
+    
  menu.addEventListener('click', ()=>{
     rmvActivePortafolio();
+    console.log(uri)
  });
 
  skills.addEventListener('click', ()=>{
     rmvActiveSkills();
+   
 });
 
 experience.addEventListener('click', ()=>{
     rmvActiveExperience();
+    
 });
 
  function rmvActivePortafolio(){
     skills.classList.remove("bg-gray-900");
     experience.classList.remove("bg-gray-900");
     menu.classList.add("bg-gray-900");
+    menu.classList.remove("bg-gray-900");
  }
 
  function rmvActiveSkills(){
@@ -115,6 +149,12 @@ experience.addEventListener('click', ()=>{
     menu.classList.remove("bg-gray-900");
     skills.classList.remove("bg-gray-900");
     experience.classList.add("bg-gray-900");
+ }
+
+ function showData(){
+     return{
+         dataShow: false
+     }
  }
 </script>
 </html>
