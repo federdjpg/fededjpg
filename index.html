@@ -16,6 +16,10 @@
             align-self: center;
             margin: auto;
             }
+            hr {
+          height: 2px;
+          background-color: #65ECF7;
+}
     </style>
 
 <body class="bg-gray-100">
@@ -75,8 +79,11 @@
         <p class="mr-3 hover:bg-red-700 cursor-pointer">Experience</p>
     </header> -->
 
-   <section>
+   <section class="container mx-auto mb-4">
+
     <div x-data="showData()">
+      <h1 class="text-4xl text-center mb-4">Experience</h1>
+      <hr>
         <article id="portafolio" class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
             <img @click="dataShow = true" class="w-full h-80 bg-cover bg-center cursor-pointer" src="./img/img1.png" alt="">
             <img @click="dataShow2 = true" class="w-full h-80 bg-cover bg-center cursor-pointer"src="./img/img2.jpg" alt="">
@@ -188,7 +195,10 @@
         </article>
     </div>
 
+    <h1 class="text-4xl text-center mb-4">Skills</h1>
+    <hr>
         <article id="skills" class="container mx-auto flex items-center grid grid-cols-3 sm:grid-cols-4 mt-4 mb-4  content-center">
+       
         <div>
           <img class="img-skills" src="./img/html52.png" alt="">
         </div>
@@ -213,15 +223,16 @@
         </div>
         </article>
 
-        <article id="experience" class="container mx-auto shadow-lg bg-white rounded-lg mb-4">
+        <article id="experience">
          
-          <h1 class="text-4xl text-center">Experience</h1>
+          <h1 class="text-4xl text-center mb-4">Experience</h1>
+          <hr>
 
-          <p>hi.</p>
-          <p>i'm not experience because never work in a project for entreprice</p>
-
-
-  
+          <div class="w-1/2 shadow-lg bg-white rounded-lg h-auto m-auto text-gray-700 font-bold mt-4 pb-4">
+            <p>hi.</p>
+            <p>i'm not experience because never work in a project for entreprice</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit totam voluptates blanditiis harum! Illum accusamus minus corporis consequatur dolor? Voluptatum cum laborum nisi omnis, dicta laboriosam! Explicabo ipsa mollitia at?</p>
+          </div>
         </article>
 
 </section>
@@ -232,12 +243,12 @@
         </div> -->
 
     <footer class=" bg-gray-900 h-24 text-white" >
-        <div class="flex flex-wrap justify-center pt-4">
-        <img class="ml-2" src="./img/facebook.svg" width="30" alt="">
-        <img class="ml-2" src="./img/instagram.svg" width="30" alt="">
-        <img class="ml-2" src="./img/linkedin.svg" width="30" alt="">
-        <img class="ml-2" src="./img/github.svg" width="30" alt="">
-        <img class="ml-2" src="./img/whatsapp.svg" width="30" alt="">
+      <a href=""> <div class="flex flex-wrap justify-center pt-4"> </a>
+      <a href=""> <img class="ml-2" src="./img/facebook.svg" width="30" alt=""> </a>
+      <a href=""> <img class="ml-2" src="./img/instagram.svg" width="30" alt=""> </a>
+      <a href=""> <img class="ml-2" src="./img/linkedin.svg" width="30" alt=""> </a>
+      <a href=""> <img class="ml-2" src="./img/github.svg" width="30" alt=""> </a>
+      <a href=""> <img class="ml-2" src="./img/whatsapp.svg" width="30" alt=""> </a>
     </div>
 
     <div class="flex flex-wrap content-end justify-center">
