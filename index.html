@@ -65,9 +65,9 @@
       
     <div class="sm:hidden" x-show="open" x-on:click.away="open = false">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#" class="portafolio text-white block px-3 py-2 rounded-md text-base font-medium">Portafolio</a>
+        <a href="#portafolio" class="portafolio text-white block px-3 py-2 rounded-md text-base font-medium">Portafolio</a>
         <a href="#skills" class="skills text-gray-300 hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
-        <a href="#" class="experience text-gray-300 hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Experince</a>
+        <a href="#experience" class="experience text-gray-300 hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Experince</a>
       </div>
     </div>
   </nav>
@@ -81,6 +81,8 @@
 
    <section class="container mx-auto mb-4">
 
+
+    
     <div x-data="showData()">
       <h1 class="text-4xl text-center mb-4">Experience</h1>
       <hr>
@@ -195,10 +197,13 @@
         </article>
     </div>
 
-    <h1 class="text-4xl text-center mb-4">Skills</h1>
+
+
+
+    <div id="skills" class="mt-4">
+      <h1 class="text-4xl text-center mb-4">Skills</h1>
     <hr>
-        <article id="skills" class="container mx-auto flex items-center grid grid-cols-3 sm:grid-cols-4 mt-4 mb-4  content-center">
-       
+        <article class="container mx-auto flex items-center grid grid-cols-3 sm:grid-cols-4 mt-4 mb-4">
         <div>
           <img class="img-skills" src="./img/html52.png" alt="">
         </div>
@@ -222,6 +227,10 @@
             <img class="img-skills" src="./img/sass.png" alt="">
         </div>
         </article>
+      </div>
+
+
+
 
         <article id="experience">
          
@@ -234,6 +243,8 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit totam voluptates blanditiis harum! Illum accusamus minus corporis consequatur dolor? Voluptatum cum laborum nisi omnis, dicta laboriosam! Explicabo ipsa mollitia at?</p>
           </div>
         </article>
+
+
 
 </section>
         <!-- <div class="bg-blue-400 h-64 grid grid-rows-3 grid-flow-col gap-4">
