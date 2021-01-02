@@ -10,10 +10,19 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
 </head>
 
-<body>
+    <style>
+        .img-skills{
+            width: 100px;
+            align-self: center;
+            justify-items: flex-end;
+            }
+    </style>
+
+<body class="bg-gray-300">
+
 
     <!-- This example requires Tailwind CSS v2.0+ -->
-<nav class="bg-gray-800"x-data="{open: false}">
+<nav class="bg-gray-800 sticky top-0" x-data="{open: false}">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -74,74 +83,157 @@
             <img @click="dataShow3 = true" class="w-full h-80 bg-cover bg-center cursor-pointer"src="./img/img3.jpeg" alt="">
 
 
-            <div x-show="dataShow" class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);">
-                <div class="bg-white rounded-lg md:max-w-md md:mx-auto p-4 fixed inset-x-0 bottom-32 md:bottom-0 z-50 mb-4 mx-4 md:relative">
-                    <div class="md:flex items-center">
-                        <div class="mt-4 md:mt-0 md:ml-6 text-center md:text-left">
-                            <p class="font-bold capitalize">¿deseas eliminar tu cuenta?</p>
-                            <p class="text-sm text-gray-700 mt-1">Todos tus datos seran eliminados definitivamente.Esta accion es irreversible. 
-                            </p>
-                        </div>
-                    </div>
-                    <div class="text-center md:text-right mt-4 md:flex md:justify-end">
-                        <button
-                            class="block w-full md:inline-block md:w-auto px-4 py-3 md:py-2 bg-red-200 text-red-700 rounded-lg font-semibold text-sm md:ml-2 md:order-2">Eliminar Cuenta
-                        </button>
-                        <button class="block w-full md:inline-block md:w-auto px-4 py-3 md:py-2 bg-gray-200 rounded-lg font-semibold text-sm mt-4
-                               md:mt-0 md:order-1"  @click="dataShow = false">Cancelar</button>
-                    </div>
-                </div>
+            <div x-show="dataShow">
+           <!-- Dialog (full screen) -->
+        <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);">
+
+        <!-- A basic modal dialog with title, body and one button to close -->
+        <div class="h-auto p-4 mx-2 text-left bg-white rounded shadow-xl md:max-w-xl md:p-6 lg:p-8 md:mx-0" @click.away="open = false">
+          <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+            <h3 class="text-lg font-medium leading-6 text-gray-900">
+              Modal Title
+            </h3>
+
+            <div class="mt-2">
+                <img src="./img/img3.jpeg" alt="">
             </div>
 
-            <div x-show="dataShow2" class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);">
-                <div class="bg-white rounded-lg md:max-w-md md:mx-auto p-4 fixed inset-x-0 bottom-32 md:bottom-0 z-50 mb-4 mx-4 md:relative">
-                    <div class="md:flex items-center">
-                        <div class="mt-4 md:mt-0 md:ml-6 text-center md:text-left">
-                            <p class="font-bold capitalize">¿deseas eliminar tu cuenta2?</p>
-                            <p class="text-sm text-gray-700 mt-1">Todos tus datos seran eliminados definitivamente.Esta accion es irreversible. 
-                            </p>
-                        </div>
-                    </div>
-                    <div class="text-center md:text-right mt-4 md:flex md:justify-end">
-                        <button
-                            class="block w-full md:inline-block md:w-auto px-4 py-3 md:py-2 bg-red-200 text-red-700 rounded-lg font-semibold text-sm md:ml-2 md:order-2">Eliminar Cuenta
-                        </button>
-                        <button class="block w-full md:inline-block md:w-auto px-4 py-3 md:py-2 bg-gray-200 rounded-lg font-semibold text-sm mt-4
-                               md:mt-0 md:order-1"  @click="dataShow2 = false">Cancelar</button>
-                    </div>
-                </div>
+            <div class="mt-2">
+              <p class="text-sm leading-5 text-gray-500">
+                Adipisci quasi doloribus. Veniam veritatis dignissimos. Quis maiores ea. Et nulla sunt.
+              </p>
+          </div>
+        </div>
+
+          <!-- One big close button.  --->
+          <div class="mt-5 sm:mt-6">
+            <span class="flex w-full rounded-md shadow-sm">
+              <button @click="dataShow = false" class="inline-flex justify-center w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">
+                Close this modal!
+              </button>
+            </span>
+          </div>
+
+        </div>
+      </div>
             </div>
 
-            <div x-show="dataShow3" class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);">
-                <div class="bg-white rounded-lg md:max-w-md md:mx-auto p-4 fixed inset-x-0 bottom-32 md:bottom-0 z-50 mb-4 mx-4 md:relative">
-                    <div class="md:flex items-center">
-                        <div class="mt-4 md:mt-0 md:ml-6 text-center md:text-left">
-                            <p class="font-bold capitalize">¿deseas eliminar tu cuenta2?</p>
-                            <p class="text-sm text-gray-700 mt-1">Todos tus datos seran eliminados definitivamente.Esta accion es irreversible. 
-                            </p>
-                        </div>
-                    </div>
-                    <div class="text-center md:text-right mt-4 md:flex md:justify-end">
-                        <button
-                            class="block w-full md:inline-block md:w-auto px-4 py-3 md:py-2 bg-red-200 text-red-700 rounded-lg font-semibold text-sm md:ml-2 md:order-2">Eliminar Cuenta
-                        </button>
-                        <button class="block w-full md:inline-block md:w-auto px-4 py-3 md:py-2 bg-gray-200 rounded-lg font-semibold text-sm mt-4
-                               md:mt-0 md:order-1"  @click="dataShow3 = false">Cancelar</button>
-                    </div>
+            <div x-show="dataShow2">
+                <!-- Dialog (full screen) -->
+             <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);">
+     
+             <!-- A basic modal dialog with title, body and one button to close -->
+             <div class="h-auto p-4 mx-2 text-left bg-white rounded shadow-xl md:max-w-xl md:p-6 lg:p-8 md:mx-0" @click.away="open = false">
+               <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                 <h3 class="text-lg font-medium leading-6 text-gray-900">
+                   Modal Title
+                 </h3>
+                 <div class="mt-2">
+                    <img src="./img/img2.jpg" alt="">
                 </div>
-            </div>
+                 <div class="mt-2">
+                   <p class="text-sm leading-5 text-gray-500">
+                     Adipisci quasi doloribus. Veniam veritatis dignissimos. Quis maiores ea. Et nulla sunt.
+                   </p>
+               </div>
+             </div>
+     
+               <!-- One big close button.  --->
+               <div class="mt-5 sm:mt-6">
+                 <span class="flex w-full rounded-md shadow-sm">
+                   <button @click="dataShow2 = false" class="inline-flex justify-center w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">
+                     Close this modal!
+                   </button>
+                 </span>
+               </div>
+     
+             </div>
+           </div>
+                 </div>
 
+                 <div x-show="dataShow3">
+                    <!-- Dialog (full screen) -->
+                 <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);">
+         
+                 <!-- A basic modal dialog with title, body and one button to close -->
+                 <div class="h-auto p-4 mx-2 text-left bg-white rounded shadow-xl md:max-w-xl md:p-6 lg:p-8 md:mx-0" @click.away="open = false">
+                   <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                     <h3 class="text-lg font-medium leading-6 text-gray-900">
+                       Smapa
+                     </h3>
+
+                     <div class="mt-2">
+                        <img src="./img/img1.png" alt="">
+                    </div>
+         
+                     <div class="mt-2">
+                       <p class="text-sm leading-5 text-gray-500">
+                       </p>
+                   </div>
+                 </div>
+         
+                   <!-- One big close button.  --->
+                   <div class="mt-5 sm:mt-6">
+                     <span class="flex w-full rounded-md shadow-sm">
+                       <button @click="dataShow3 = false" class="inline-flex justify-center w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">
+                         Close this modal!
+                       </button>
+                     </span>
+                   </div>
+         
+                 </div>
+               </div>
+                     </div>
            
         </article>
     </div>
-    <section>
-        <article id="skills">
-           
+
+        <article id="skills" class="container mx-auto flex items-center grid grid-cols-3">
+        <div class="bg-blue-700">
+            <img class="img-skills w-full h-80 bg-cover bg-center cursor-pointer  " src="./img/html52.png" alt="">
+        </div>
+        <div>
+            <img class="img-skills" src="./img/css.png" alt="">
+        </div>
+        <div>
+            <img class="img-skills" src="./img/js.png" alt="">
+        </div>
+        <div>
+            <img class="img-skills" src="./img/jquery.png" alt="">
+        </div>
+        <div>
+            <img class="img-skills" src="./img/git.png" alt="">
+        </div>
+        <div>
+            <img class="img-skills" src="./img/bootstrap.png" alt="">
+        </div>
+            <img class="img-skills" src="./img/php.png" alt="">
+            <div>
+            <img class="img-skills" src="./img/sass.png" alt="">
+        </div>
         </article>
-    </section>
 
-    <footer>
 
+        <div class="bg-blue-400 h-64 grid grid-rows-3 grid-flow-col gap-4">
+          <div>1</div>
+          <!-- ... -->
+          <div>9</div>
+        </div>
+
+    <footer class=" bg-gray-900 h-16 text-white" >
+        <div class="flex flex-wrap justify-center">
+        <img src="./img/php.png" width="50" alt="">
+        <img src="./img/php.png" width="50" alt="">
+        <img src="./img/php.png" width="50" alt="">
+    </div>
+
+    <div class="flex flex-wrap content-end justify-center">
+
+   
+        <p>Developed and Desingned by Fededjpg 
+            ©<script type="text/javascript">let d = new Date()
+            document.write(d.getFullYear())</script></p>
+     </div>
     </footer>
 </body>
 
